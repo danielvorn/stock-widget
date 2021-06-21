@@ -1,0 +1,137 @@
+.search-tip {
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+    font-family: Work Sans, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #888888
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /*width: 640px;*/
+    /*height: 238px;*/
+    /*top: 47px;*/
+}
+
+.frame {
+    display: grid;
+    grid-template-columns: 316px 324px;
+    grid-template-rows: 111px 127px;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
+}
+
+li {
+    list-style-type: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+header {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 24px 24px 0 24px;
+}
+
+/* Horizontal Divider */
+header:after {
+    content: "";
+    width: 594px;
+    height: 1px;
+    background: #EEE;
+    position: absolute;
+    top: 111px;
+}
+
+/* Section Divider */
+.section-divider:after {
+    content: "";
+    width: 79px;
+    height: 1px;
+    background: #EEE;
+    position: absolute;
+    top: 40px;
+    left: 109px;
+    transform: rotate(90deg);
+}
+
+header div {
+    text-align: left;
+}
+
+header li:nth-of-type(1) {
+    font-family: Work Sans, serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 42px;
+    text-align: center;
+
+}
+
+header div:nth-of-type(1) li:last-child {
+    font-size: 18px;
+    line-height: 21px;
+    color: #888;
+}
+
+header div:nth-of-type(2) li {
+    text-align: right;
+}
+
+header div:nth-of-type(2) li:last-child {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: right;
+    color: #27AE60
+;
+}
+
+aside {
+    position: relative;
+}
+
+.data-section-one, .data-section-two {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    grid-row: span 1;
+    font-size: 14px;
+}
+
+
+section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.data-section-one {
+    padding: 24px 24px 32px 24px;
+}
+
+.data-section-one {
+    padding: 24px 24px 32px 24px;
+}
+
+.data-section-two {
+    padding: 24px 24px 29px 24px;
+}
+
+section div:nth-of-type(2) li {
+    text-align: right;
+    font-size: 14px;
+    line-height: 16px;
+    color: #888888;
+}
+
+

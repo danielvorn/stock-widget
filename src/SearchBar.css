@@ -1,5 +1,5 @@
 .search-container {
-    margin-top: 64px;
+    margin: 47px 0 64px 0;
 }
 .search-bar {
     flex-wrap: wrap;
@@ -37,16 +37,4 @@
     color: #000000;
     outline: none;
     margin-right: 4px;
-}
-
-.search-tip {
-    display: flex;
-    margin-top: 64px;
-    justify-content: center;
-    font-family: Work Sans, serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: #888888
 }
