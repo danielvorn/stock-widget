@@ -1,10 +1,10 @@
 import React, {useState} from "react"
-import "./SearchBar.css"
-import {getStock} from "./client";
+import "../styles/SearchBar.css"
+import {getStock} from "../client"
 
 function SearchBar({setFrame, setStock, setError}) {
 
-    const [ticker, setTicker] = useState("");
+    const [ticker, setTicker] = useState("")
 
     const handleInput = input => {
         if (input === "") {
@@ -25,7 +25,7 @@ function SearchBar({setFrame, setStock, setError}) {
                 setFrame(false)
                 setError(true)
             } else {
-                console.error("Error", error.message);
+                console.error("Error", error.message)
             }
         }
     }
@@ -47,7 +47,7 @@ function SearchBar({setFrame, setStock, setError}) {
                 </button>
             </div>
         </div>
-    );
+    )
 }
 
-export default SearchBar;
+export default SearchBar

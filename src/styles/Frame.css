@@ -1,28 +1,29 @@
-.search-tip {
-    display: flex;
-    margin-top: 64px;
-    justify-content: center;
-    font-family: Work Sans, serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: #888888
+article {
+    border-right: 1px solid #EEE;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left:0;
+}
+
+nav {
+    border-bottom: 1px solid #eee;
+    position: absolute;
+    bottom: 0;
+    left: 22px;
+    right: 22px;
 }
 
 .grid-container {
     display: flex;
     justify-content: center;
     position: relative;
-    /*width: 640px;*/
-    /*height: 238px;*/
-    /*top: 47px;*/
 }
 
 .frame {
     display: grid;
-    grid-template-columns: 316px 324px;
-    grid-template-rows: 111px 127px;
+    grid-template-columns: minmax(auto, 316px) minmax(auto, 324px);
+    grid-template-rows: minmax(auto, 111px) minmax(auto, 127px);
     border-radius: 24px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
@@ -41,28 +42,7 @@ header {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 24px 24px 0 24px;
-}
-
-/* Horizontal Divider */
-header:after {
-    content: "";
-    width: 594px;
-    height: 1px;
-    background: #EEE;
-    position: absolute;
-    top: 111px;
-}
-
-/* Section Divider */
-.section-divider {
-    content: "";
-    width: 79px;
-    height: 1px;
-    background: #EEE;
-    position: absolute;
-    top: 40px;
-    left: 252px;
-    transform: rotate(90deg);
+    position: relative;
 }
 
 header div {
@@ -102,10 +82,6 @@ header div:nth-of-type(2) li {
     color: #27AE60;
 }
 
-aside {
-    position: fixed;
-}
-
 section div {
     display: flex;
     flex-direction: column;
@@ -122,6 +98,7 @@ section div:nth-of-type(2) li {
 .data-section-one, .data-section-two {
     display: flex;
     justify-content: space-between;
+    position: relative;
     box-sizing: border-box;
     grid-row: span 1;
     font-size: 14px;
@@ -139,5 +116,18 @@ section div:nth-of-type(2) li {
     padding: 24px 24px 29px 24px;
 }
 
+.search-tip {
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+    font-family: Work Sans, serif;
+    font-size: 18px;
+    line-height: 21px;
+    color: #888888
+}
 
-
+@media only screen and (max-width: 677px) {
+    .grid-container {
+        padding: 0 35px;
+    }
+}

@@ -1,9 +1,9 @@
-import React from "react";
-import "./Frame.css"
+import React from "react"
+import "../styles/Frame.css"
 
 function Frame({frame, stock, error}) {
     const abbreviateNumber = number => {
-        const numLength = number?.toString().length;
+        const numLength = number?.toString().length
         const numLeftOfDecimal = number?.toLocaleString().split(",")[0]
         const numRightOfDecimal = number?.toLocaleString().split(",")[1]
         const abbreviatedNum = numLeftOfDecimal + "." + numRightOfDecimal?.substr(0, 2)
@@ -24,6 +24,7 @@ function Frame({frame, stock, error}) {
 
     if (frame) {
         return <div className="grid-container">
+
             <div className="frame">
                 <header>
                     <div>
@@ -36,23 +37,25 @@ function Frame({frame, stock, error}) {
                         ? <li className="price price-decrease">{stock.change} ({stock.changePercent}%) ↓</li>
                         : <li className="price price-increase">+{stock.change} ({stock.changePercent}%) ↑</li>}
                     </div>
+                <nav></nav>
                 </header>
+
                 <section className="data-section-one">
                     <div>
                         <li>Mkt Cap</li>
                         <li>P/E ratio</li>
                         <li>Avg volume</li>
                     </div>
-                    <aside>
-                        <div className="section-divider"/>
-                    </aside>
                     <div>
                         <li>{abbreviateNumber(stock.marketCap)}</li>
                         <li>{stock.peRatio ? stock.peRatio : "N/A"}</li>
                         <li>{abbreviateNumber(stock.avgTotalVolume)}</li>
                     </div>
+
                 </section>
+
                 <section className="data-section-two">
+                    <article></article>
                     <div>
                         <li>Prev Close</li>
                         <li>52-wk high</li>
@@ -65,6 +68,7 @@ function Frame({frame, stock, error}) {
                     </div>
                 </section>
             </div>
+
         </div>
     }
 
@@ -73,4 +77,4 @@ function Frame({frame, stock, error}) {
     return <p><span className="search-tip">Search stock by ticker symbol</span></p>
 }
 
-export default Frame;
+export default Frame
