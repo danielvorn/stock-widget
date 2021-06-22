@@ -3,9 +3,11 @@ import "../styles/Frame.css"
 
 function Frame({frame, stock, error}) {
     const abbreviateNumber = number => {
-        const abbreviateNumber = (num) =>
-            num.split(",")[0] + "." + num.split(",")[1].substr(0, 2)
-        const newNumber = abbreviateNumber(number.toLocaleString())
+        if (number === null || number === 0) return "N/A"
+
+        const buildNumber = (num) =>
+            num.split(",")[0] + "." + num.split(",")[1]?.substr(0, 2)
+        const newNumber = buildNumber(number.toLocaleString())
         const numLength = number?.toString().length
 
         if (numLength > 12) return `${newNumber}T`

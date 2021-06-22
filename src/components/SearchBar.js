@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import "../styles/SearchBar.css"
-import {getStock} from "../client"
+import {getQuote} from "../client"
 
 function SearchBar({setFrame, setStock, setError}) {
 
@@ -17,7 +17,7 @@ function SearchBar({setFrame, setStock, setError}) {
 
     const onSubmit = async () => {
         try {
-            const request = await getStock(ticker)
+            const request = await getQuote(ticker)
             setStock(request.data)
             setFrame(true)
         } catch(error) {
