@@ -8,7 +8,7 @@ This project is hosted at: https://stock-widget-94be1.web.app/
 
 ## Getting Started
 
-Check out the project and install dependencies by running:
+Clone the project and install dependencies by running:
 
 ### `yarn install`
 
