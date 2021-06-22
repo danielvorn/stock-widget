@@ -23,7 +23,6 @@ function Frame({frame, stock, error}) {
 
     if (frame) {
         return <div className="grid-container">
-
             <div className="frame">
                 <header>
                     <div>
@@ -36,7 +35,7 @@ function Frame({frame, stock, error}) {
                         ? <li className="price price-decrease">{stock.change} ({stock.changePercent}%) ↓</li>
                         : <li className="price price-increase">+{stock.change} ({stock.changePercent}%) ↑</li>}
                     </div>
-                <div className="horizontal-divider"/>
+                <aside className="horizontal-divider"/>
                 </header>
 
                 <section className="data-section-one">
@@ -54,7 +53,7 @@ function Frame({frame, stock, error}) {
                 </section>
 
                 <section className="data-section-two">
-                    <div className="vertical-divider"/>
+                    <aside className="vertical-divider"/>
                     <div>
                         <li>Prev Close</li>
                         <li>52-wk high</li>
