@@ -1,6 +1,6 @@
 # Stock Widget App
 
-Enter a ticker. Get stock quotes instantly.
+Enter a ticker symbol. Get stock quotes instantly 📈⚡️
 
 ## Live Demo
 
