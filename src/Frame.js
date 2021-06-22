@@ -1,5 +1,5 @@
-import React from 'react';
-import './Frame.css'
+import React from "react";
+import "./Frame.css"
 
 function Frame({frame, stock, error}) {
     const abbreviateNumber = number => {
@@ -34,7 +34,7 @@ function Frame({frame, stock, error}) {
                         <li>{stock.latestPrice}</li>
                         { priceDecreased(stock.change)
                         ? <li className="price price-decrease">{stock.change} ({stock.changePercent}%) ↓</li>
-                        : <li className="price price-increase">{stock.change} ({stock.changePercent}%) ↑</li>}
+                        : <li className="price price-increase">+{stock.change} ({stock.changePercent}%) ↑</li>}
                     </div>
                 </header>
                 <section className="data-section-one">

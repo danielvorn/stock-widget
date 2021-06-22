@@ -1,4 +1,3 @@
-import './App.css';
 import Frame from "./Frame";
 import SearchBar from "./SearchBar";
 import {useState} from "react";

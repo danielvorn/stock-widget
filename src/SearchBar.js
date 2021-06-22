@@ -1,10 +1,19 @@
 import React, {useState} from "react"
-import './SearchBar.css'
+import "./SearchBar.css"
 import {getStock} from "./client";
 
 function SearchBar({setFrame, setStock, setError}) {
 
     const [ticker, setTicker] = useState("");
+
+    const handleInput = input => {
+        if (input === "") {
+            setFrame(false)
+            setError(false)
+        } else {
+            setTicker(input)
+        }
+    }
 
     const onSubmit = async () => {
         try {
@@ -16,13 +25,13 @@ function SearchBar({setFrame, setStock, setError}) {
                 setFrame(false)
                 setError(true)
             } else {
-                console.error('Error', error.message);
+                console.error("Error", error.message);
             }
         }
     }
 
     const handleKeyDown = (event) => {
-        if (event.key === 'Enter') onSubmit()
+        if (event.key === "Enter") onSubmit()
     }
 
     return (
@@ -30,7 +39,7 @@ function SearchBar({setFrame, setStock, setError}) {
             <div className="search-bar">
                 <input className="input-bubble"
                        placeholder="Stock Ticker"
-                       onChange={e => setTicker(e.target.value)}
+                       onChange={e => handleInput(e.target.value)}
                        onKeyDown={handleKeyDown}
                        autoFocus/>
                 <button className="search-button" onClick={onSubmit}>

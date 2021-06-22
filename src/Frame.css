@@ -106,19 +106,25 @@ aside {
     position: fixed;
 }
 
+section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section div:nth-of-type(2) li {
+    text-align: right;
+    font-size: 14px;
+    line-height: 16px;
+    color: #888888;
+}
+
 .data-section-one, .data-section-two {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     grid-row: span 1;
     font-size: 14px;
-}
-
-
-section div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .data-section-one {
@@ -133,11 +139,5 @@ section div {
     padding: 24px 24px 29px 24px;
 }
 
-section div:nth-of-type(2) li {
-    text-align: right;
-    font-size: 14px;
-    line-height: 16px;
-    color: #888888;
-}
 
 
