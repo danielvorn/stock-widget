@@ -54,14 +54,14 @@ header:after {
 }
 
 /* Section Divider */
-.section-divider:after {
+.section-divider {
     content: "";
     width: 79px;
     height: 1px;
     background: #EEE;
     position: absolute;
     top: 40px;
-    left: 109px;
+    left: 252px;
     transform: rotate(90deg);
 }
 
@@ -74,7 +74,7 @@ header li:nth-of-type(1) {
     font-size: 36px;
     font-weight: 600;
     line-height: 42px;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -88,16 +88,22 @@ header div:nth-of-type(2) li {
     text-align: right;
 }
 
-header div:nth-of-type(2) li:last-child {
+.price {
     font-size: 18px;
     line-height: 21px;
     text-align: right;
-    color: #27AE60
-;
+}
+
+.price-decrease {
+    color: #EB5757;
+}
+
+.price-increase {
+    color: #27AE60;
 }
 
 aside {
-    position: relative;
+    position: fixed;
 }
 
 .data-section-one, .data-section-two {

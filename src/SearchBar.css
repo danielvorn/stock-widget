@@ -1,6 +1,7 @@
 .search-container {
     margin: 47px 0 64px 0;
 }
+
 .search-bar {
     flex-wrap: wrap;
     display: flex;
@@ -21,6 +22,14 @@
     border: none;
     cursor: pointer;
     margin-left: 4px;
+}
+
+input {
+    text-transform: uppercase;
+}
+
+::placeholder {
+    text-transform: none;
 }
 
 .input-bubble {

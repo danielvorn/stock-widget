@@ -1,20 +1,41 @@
 import React, {useState} from "react"
 import './SearchBar.css'
+import {getStock} from "./client";
 
-function SearchBar({setFrame}) {
+function SearchBar({setFrame, setStock, setError}) {
 
-    const showFrame = () => setFrame(result => !result)
+    const [ticker, setTicker] = useState("");
+
+    const onSubmit = async () => {
+        try {
+            const request = await getStock(ticker)
+            setStock(request.data)
+            setFrame(true)
+        } catch(error) {
+            if (error.response.status === 404) {
+                setFrame(false)
+                setError(true)
+            } else {
+                console.error('Error', error.message);
+            }
+        }
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') onSubmit()
+    }
 
     return (
         <div className="search-container">
             <div className="search-bar">
-            <input className="input-bubble" placeholder="Stock Ticker" autoFocus/>
-            <button
-                className="search-button"
-                onClick={showFrame}
-            >
-                <span className="search-text">SEARCH</span>
-            </button>
+                <input className="input-bubble"
+                       placeholder="Stock Ticker"
+                       onChange={e => setTicker(e.target.value)}
+                       onKeyDown={handleKeyDown}
+                       autoFocus/>
+                <button className="search-button" onClick={onSubmit}>
+                    <span className="search-text">SEARCH</span>
+                </button>
             </div>
         </div>
     );

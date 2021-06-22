@@ -1,20 +1,40 @@
 import React from 'react';
 import './Frame.css'
 
-function Frame({frame}) {
-    return (
-        frame ? <section><span className="search-tip">Search stock by ticker symbol</span></section> :
-            <div className="grid-container">
+function Frame({frame, stock, error}) {
+    const abbreviateNumber = number => {
+        const numLength = number?.toString().length;
+        const numLeftOfDecimal = number?.toLocaleString().split(",")[0]
+        const numRightOfDecimal = number?.toLocaleString().split(",")[1]
+        const abbreviatedNum = numLeftOfDecimal + "." + numRightOfDecimal?.substr(0, 2)
+
+        if (numLength > 12) return `${abbreviatedNum}T`
+
+        if (numLength > 9) return `${abbreviatedNum}B`
+
+        if (numLength > 6) return `${abbreviatedNum}M`
+
+        if (numLength > 3) return `${abbreviatedNum}K`
+
+        return number
+    }
+
+    const priceDecreased = (num) => num.toString().charAt(0) === "-"
+
+
+    if (frame) {
+        return <div className="grid-container">
             <div className="frame">
                 <header>
                     <div>
-                        <li>AAPL</li>
-                        <li>Apple Inc.</li>
+                        <li>{stock.symbol}</li>
+                        <li>{stock.companyName}</li>
                     </div>
                     <div>
-                        <li>134.29</li>
-                        {/*<li>-1.10 (0.81%) ↓</li>*/}
-                        <li>+1.10 (0.81%) ↑</li>
+                        <li>{stock.latestPrice}</li>
+                        { priceDecreased(stock.change)
+                        ? <li className="price price-decrease">{stock.change} ({stock.changePercent}%) ↓</li>
+                        : <li className="price price-increase">{stock.change} ({stock.changePercent}%) ↑</li>}
                     </div>
                 </header>
                 <section className="data-section-one">
@@ -27,9 +47,9 @@ function Frame({frame}) {
                         <div className="section-divider"/>
                     </aside>
                     <div>
-                        <li>2.25T</li>
-                        <li>28.68</li>
-                        <li>103.95 M</li>
+                        <li>{abbreviateNumber(stock.marketCap)}</li>
+                        <li>{stock.peRatio ? stock.peRatio : "N/A"}</li>
+                        <li>{abbreviateNumber(stock.avgTotalVolume)}</li>
                     </div>
                 </section>
                 <section className="data-section-two">
@@ -39,14 +59,18 @@ function Frame({frame}) {
                         <li>52-wk low</li>
                     </div>
                     <div>
-                        <li>2.25T</li>
-                        <li>145.09</li>
-                        <li>53.15</li>
+                        <li>{stock.previousClose}</li>
+                        <li>{stock.week52High}</li>
+                        <li>{stock.week52Low}</li>
                     </div>
                 </section>
             </div>
         </div>
-    );
+    }
+
+    if (error) return <p><span className="search-tip">Invalid ticker symbol</span></p>
+
+    return <p><span className="search-tip">Search stock by ticker symbol</span></p>
 }
 
 export default Frame;
