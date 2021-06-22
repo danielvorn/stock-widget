@@ -3,18 +3,15 @@ import "../styles/Frame.css"
 
 function Frame({frame, stock, error}) {
     const abbreviateNumber = number => {
+        const abbreviateNumber = (num) =>
+            num.split(",")[0] + "." + num.split(",")[1].substr(0, 2)
+        const newNumber = abbreviateNumber(number.toLocaleString())
         const numLength = number?.toString().length
-        const numLeftOfDecimal = number?.toLocaleString().split(",")[0]
-        const numRightOfDecimal = number?.toLocaleString().split(",")[1]
-        const abbreviatedNum = numLeftOfDecimal + "." + numRightOfDecimal?.substr(0, 2)
 
-        if (numLength > 12) return `${abbreviatedNum}T`
-
-        if (numLength > 9) return `${abbreviatedNum}B`
-
-        if (numLength > 6) return `${abbreviatedNum}M`
-
-        if (numLength > 3) return `${abbreviatedNum}K`
+        if (numLength > 12) return `${newNumber}T`
+        if (numLength > 9)  return `${newNumber}B`
+        if (numLength > 6)  return `${newNumber}M`
+        if (numLength > 3)  return `${newNumber}K`
 
         return number
     }
@@ -37,7 +34,7 @@ function Frame({frame, stock, error}) {
                         ? <li className="price price-decrease">{stock.change} ({stock.changePercent}%) ↓</li>
                         : <li className="price price-increase">+{stock.change} ({stock.changePercent}%) ↑</li>}
                     </div>
-                <nav></nav>
+                <div className="horizontal-divider"/>
                 </header>
 
                 <section className="data-section-one">
@@ -55,7 +52,7 @@ function Frame({frame, stock, error}) {
                 </section>
 
                 <section className="data-section-two">
-                    <article></article>
+                    <div className="vertical-divider"/>
                     <div>
                         <li>Prev Close</li>
                         <li>52-wk high</li>
