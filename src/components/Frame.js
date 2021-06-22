@@ -5,8 +5,11 @@ function Frame({frame, stock, error}) {
     const abbreviateNumber = number => {
         if (number === null || number === 0) return "N/A"
 
-        const buildNumber = (num) =>
-            num.split(",")[0] + "." + num.split(",")[1]?.substr(0, 2)
+        const buildNumber = (num) => {
+            const numCommaSplit = num.split(",");
+            return numCommaSplit[0] + "." + numCommaSplit[1]?.substr(0, 2)
+        }
+
         const newNumber = buildNumber(number.toLocaleString())
         const numLength = number?.toString().length
 
